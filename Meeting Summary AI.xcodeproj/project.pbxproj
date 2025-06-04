@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6393E3792DF0C1EC00BAD9FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6393E3782DF0C1EC00BAD9FB /* XCTest.framework */; platformFilter = ios; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6393E3302DEFDDB400BAD9FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6393E31A2DEFDDAD00BAD9FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6393E3212DEFDDAD00BAD9FB;
+			remoteInfo = "Meeting Summary AI";
+		};
+		6393E33A2DEFDDB500BAD9FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6393E31A2DEFDDAD00BAD9FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6393E3212DEFDDAD00BAD9FB;
+			remoteInfo = "Meeting Summary AI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6393E3222DEFDDAD00BAD9FB /* Meeting Summary AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meeting Summary AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6393E32F2DEFDDB400BAD9FB /* Meeting Summary AITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meeting Summary AITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6393E3392DEFDDB500BAD9FB /* Meeting Summary AIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meeting Summary AIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6393E3782DF0C1EC00BAD9FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6393E3242DEFDDAD00BAD9FB /* Meeting Summary AI */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Meeting Summary AI";
+			sourceTree = "<group>";
+		};
+		6393E3322DEFDDB400BAD9FB /* Meeting Summary AITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Meeting Summary AITests";
+			sourceTree = "<group>";
+		};
+		6393E33C2DEFDDB500BAD9FB /* Meeting Summary AIUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Meeting Summary AIUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6393E31F2DEFDDAD00BAD9FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E32C2DEFDDB400BAD9FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6393E3792DF0C1EC00BAD9FB /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E3362DEFDDB500BAD9FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6393E3192DEFDDAD00BAD9FB = {
+			isa = PBXGroup;
+			children = (
+				6393E3242DEFDDAD00BAD9FB /* Meeting Summary AI */,
+				6393E3322DEFDDB400BAD9FB /* Meeting Summary AITests */,
+				6393E33C2DEFDDB500BAD9FB /* Meeting Summary AIUITests */,
+				6393E3772DF0C1EB00BAD9FB /* Frameworks */,
+				6393E3232DEFDDAD00BAD9FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6393E3232DEFDDAD00BAD9FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6393E3222DEFDDAD00BAD9FB /* Meeting Summary AI.app */,
+				6393E32F2DEFDDB400BAD9FB /* Meeting Summary AITests.xctest */,
+				6393E3392DEFDDB500BAD9FB /* Meeting Summary AIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6393E3772DF0C1EB00BAD9FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6393E3782DF0C1EC00BAD9FB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6393E3212DEFDDAD00BAD9FB /* Meeting Summary AI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6393E3432DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AI" */;
+			buildPhases = (
+				6393E31E2DEFDDAD00BAD9FB /* Sources */,
+				6393E31F2DEFDDAD00BAD9FB /* Frameworks */,
+				6393E3202DEFDDAD00BAD9FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6393E3242DEFDDAD00BAD9FB /* Meeting Summary AI */,
+			);
+			name = "Meeting Summary AI";
+			packageProductDependencies = (
+			);
+			productName = "Meeting Summary AI";
+			productReference = 6393E3222DEFDDAD00BAD9FB /* Meeting Summary AI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6393E32E2DEFDDB400BAD9FB /* Meeting Summary AITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6393E3462DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AITests" */;
+			buildPhases = (
+				6393E32B2DEFDDB400BAD9FB /* Sources */,
+				6393E32C2DEFDDB400BAD9FB /* Frameworks */,
+				6393E32D2DEFDDB400BAD9FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6393E3312DEFDDB400BAD9FB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6393E3322DEFDDB400BAD9FB /* Meeting Summary AITests */,
+			);
+			name = "Meeting Summary AITests";
+			packageProductDependencies = (
+			);
+			productName = "Meeting Summary AITests";
+			productReference = 6393E32F2DEFDDB400BAD9FB /* Meeting Summary AITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6393E3382DEFDDB500BAD9FB /* Meeting Summary AIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6393E3492DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AIUITests" */;
+			buildPhases = (
+				6393E3352DEFDDB500BAD9FB /* Sources */,
+				6393E3362DEFDDB500BAD9FB /* Frameworks */,
+				6393E3372DEFDDB500BAD9FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6393E33B2DEFDDB500BAD9FB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6393E33C2DEFDDB500BAD9FB /* Meeting Summary AIUITests */,
+			);
+			name = "Meeting Summary AIUITests";
+			packageProductDependencies = (
+			);
+			productName = "Meeting Summary AIUITests";
+			productReference = 6393E3392DEFDDB500BAD9FB /* Meeting Summary AIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6393E31A2DEFDDAD00BAD9FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					6393E3212DEFDDAD00BAD9FB = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					6393E32E2DEFDDB400BAD9FB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 6393E3212DEFDDAD00BAD9FB;
+					};
+					6393E3382DEFDDB500BAD9FB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 6393E3212DEFDDAD00BAD9FB;
+					};
+				};
+			};
+			buildConfigurationList = 6393E31D2DEFDDAD00BAD9FB /* Build configuration list for PBXProject "Meeting Summary AI" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6393E3192DEFDDAD00BAD9FB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6393E3232DEFDDAD00BAD9FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6393E3212DEFDDAD00BAD9FB /* Meeting Summary AI */,
+				6393E32E2DEFDDB400BAD9FB /* Meeting Summary AITests */,
+				6393E3382DEFDDB500BAD9FB /* Meeting Summary AIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6393E3202DEFDDAD00BAD9FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E32D2DEFDDB400BAD9FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E3372DEFDDB500BAD9FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6393E31E2DEFDDAD00BAD9FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E32B2DEFDDB400BAD9FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6393E3352DEFDDB500BAD9FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6393E3312DEFDDB400BAD9FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6393E3212DEFDDAD00BAD9FB /* Meeting Summary AI */;
+			targetProxy = 6393E3302DEFDDB400BAD9FB /* PBXContainerItemProxy */;
+		};
+		6393E33B2DEFDDB500BAD9FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6393E3212DEFDDAD00BAD9FB /* Meeting Summary AI */;
+			targetProxy = 6393E33A2DEFDDB500BAD9FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6393E3412DEFDDB500BAD9FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6393E3422DEFDDB500BAD9FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6393E3442DEFDDB500BAD9FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record your meetings for transcription and summarization. Your audio will be processed locally and sent to OpenAI for transcription.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6393E3452DEFDDB500BAD9FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record your meetings for transcription and summarization. Your audio will be processed locally and sent to OpenAI for transcription.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6393E3472DEFDDB500BAD9FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meeting Summary AI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meeting Summary AI";
+			};
+			name = Debug;
+		};
+		6393E3482DEFDDB500BAD9FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meeting Summary AI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meeting Summary AI";
+			};
+			name = Release;
+		};
+		6393E34A2DEFDDB500BAD9FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Meeting Summary AI";
+			};
+			name = Debug;
+		};
+		6393E34B2DEFDDB500BAD9FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W9UCB57U5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MSAIApp.Meeting-Summary-AIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Meeting Summary AI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6393E31D2DEFDDAD00BAD9FB /* Build configuration list for PBXProject "Meeting Summary AI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6393E3412DEFDDB500BAD9FB /* Debug */,
+				6393E3422DEFDDB500BAD9FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6393E3432DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6393E3442DEFDDB500BAD9FB /* Debug */,
+				6393E3452DEFDDB500BAD9FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6393E3462DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6393E3472DEFDDB500BAD9FB /* Debug */,
+				6393E3482DEFDDB500BAD9FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6393E3492DEFDDB500BAD9FB /* Build configuration list for PBXNativeTarget "Meeting Summary AIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6393E34A2DEFDDB500BAD9FB /* Debug */,
+				6393E34B2DEFDDB500BAD9FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6393E31A2DEFDDAD00BAD9FB /* Project object */;
+}

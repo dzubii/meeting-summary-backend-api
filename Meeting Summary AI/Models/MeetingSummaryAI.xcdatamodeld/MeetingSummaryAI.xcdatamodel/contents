@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Meeting" representedClassName="Meeting" syncable="YES" codeGenerationType="class">
+        <attribute name="audioURL" optional="YES" attributeType="URI"/>
+        <attribute name="date" attributeType="Date" defaultValueString="now" usesScalarValueType="NO"/>
+        <attribute name="errorMessage" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isProcessing" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="keyPoints" optional="YES" attributeType="String"/>
+        <attribute name="nextSteps" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String" defaultValueString="Untitled Meeting"/>
+        <attribute name="transcript" optional="YES" attributeType="String"/>
+    </entity>
+</model> 
