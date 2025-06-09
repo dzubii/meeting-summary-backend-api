@@ -7,7 +7,13 @@ class OpenAIService {
     
     func transcribeAudio(fileURL: URL) async throws -> String {
         let boundary = UUID().uuidString
-        var request = URLRequest(url: URL(string: "\(APIConfig.baseURL)/api/transcribe")!)
+        let urlString = "\(APIConfig.baseURL)/api/transcribe"
+        print("Attempting to create URL with string: \(urlString)")
+        guard let url = URL(string: urlString) else {
+            print("Failed to create URL from string: \(urlString)")
+            throw APIError.invalidURL
+        }
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = APIConfig.headers
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -26,46 +32,133 @@ class OpenAIService {
         
         request.httpBody = data
         
-        let (responseData, response) = try await URLSession.shared.data(for: request)
+        print("Making POST request to: \(urlString)")
         
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIError.invalidResponse
-        }
-        
-        guard httpResponse.statusCode == 200 else {
-            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
-                throw APIError.serverError(errorResponse.error)
+        do {
+            let (responseData, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Invalid response received: \(response)")
+                throw APIError.invalidResponse
             }
-            throw APIError.serverError("Unknown error occurred")
+            
+            print("Received HTTP response status code: \(httpResponse.statusCode)")
+            print("Received response data: \(String(data: responseData, encoding: .utf8) ?? "Unable to decode data as UTF-8")")
+            
+            guard httpResponse.statusCode == 200 else {
+                if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
+                    print("Server error response: \(errorResponse.error)")
+                    throw APIError.serverError(errorResponse.error)
+                }
+                print("Server returned non-200 status with no error response: \(httpResponse.statusCode)")
+                throw APIError.serverError("Unknown error occurred with status code \(httpResponse.statusCode)")
+            }
+            
+            let transcriptionResponse = try JSONDecoder().decode(TranscriptionResponse.self, from: responseData)
+            print("Successfully transcribed audio")
+            return transcriptionResponse.text
+        } catch {
+            print("Network or processing error during transcription: \(error.localizedDescription)")
+            // Re-throw the error or wrap it in your APIError
+            throw error
         }
-        
-        let transcriptionResponse = try JSONDecoder().decode(TranscriptionResponse.self, from: responseData)
-        return transcriptionResponse.text
     }
     
     func summarizeTranscript(_ transcript: String) async throws -> (keyPoints: String, nextSteps: String) {
-        var request = URLRequest(url: URL(string: "\(APIConfig.baseURL)/api/summarize")!)
+        let urlString = "\(APIConfig.baseURL)/api/summarize"
+        print("Attempting to create URL with string: \(urlString)")
+        guard let url = URL(string: urlString) else {
+            print("Failed to create URL from string: \(urlString)")
+            throw APIError.invalidURL
+        }
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = APIConfig.headers
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type") // Ensure Content-Type is JSON for summary
         
         let requestBody = ["transcript": transcript]
         request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
         
-        let (responseData, response) = try await URLSession.shared.data(for: request)
+        print("Making POST request to: \(urlString)")
         
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIError.invalidResponse
-        }
-        
-        guard httpResponse.statusCode == 200 else {
-            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
-                throw APIError.serverError(errorResponse.error)
+        do {
+            let (responseData, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                 print("Invalid response received: \(response)")
+                throw APIError.invalidResponse
             }
-            throw APIError.serverError("Unknown error occurred")
+            
+            print("Received HTTP response status code: \(httpResponse.statusCode)")
+             print("Received response data: \(String(data: responseData, encoding: .utf8) ?? "Unable to decode data as UTF-8")")
+            
+            guard httpResponse.statusCode == 200 else {
+                if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
+                     print("Server error response: \(errorResponse.error)")
+                    throw APIError.serverError(errorResponse.error)
+                }
+                 print("Server returned non-200 status with no error response: \(httpResponse.statusCode)")
+                throw APIError.serverError("Unknown error occurred with status code \(httpResponse.statusCode)")
+            }
+            
+            let summaryResponse = try JSONDecoder().decode(SummaryResponse.self, from: responseData)
+            print("Successfully summarized transcript")
+            return (summaryResponse.keyPoints, summaryResponse.nextSteps)
+        } catch {
+            print("Network or processing error during summarization: \(error.localizedDescription)")
+            // Re-throw the error or wrap it in your APIError
+            throw error
         }
-        
-        let summaryResponse = try JSONDecoder().decode(SummaryResponse.self, from: responseData)
-        return (summaryResponse.keyPoints, summaryResponse.nextSteps)
+    }
+
+    // New function to generate a short title summary
+    func generateTitleSummary(_ transcript: String) async throws -> String {
+        let urlString = "\(APIConfig.baseURL)/api/generate-title"
+        print("Attempting to create URL for title summary with string: \(urlString)")
+        guard let url = URL(string: urlString) else {
+            print("Failed to create URL for title summary from string: \(urlString)")
+            throw APIError.invalidURL
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = APIConfig.headers
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let requestBody = ["transcript": transcript]
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+
+        print("Making POST request to: \(urlString) for title summary")
+
+        do {
+            let (responseData, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Invalid response received for title summary: \(response)")
+                throw APIError.invalidResponse
+            }
+
+            print("Received HTTP response status code for title summary: \(httpResponse.statusCode)")
+            print("Received response data for title summary: \(String(data: responseData, encoding: .utf8) ?? "Unable to decode data as UTF-8")")
+
+            guard httpResponse.statusCode == 200 else {
+                if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: responseData) {
+                    print("Server error response for title summary: \(errorResponse.error)")
+                    throw APIError.serverError(errorResponse.error)
+                }
+                print("Server returned non-200 status for title summary with no error response: \(httpResponse.statusCode)")
+                throw APIError.serverError("Unknown error occurred with status code \(httpResponse.statusCode)")
+            }
+
+            let titleSummaryResponse = try JSONDecoder().decode(TitleSummaryResponse.self, from: responseData)
+            print("Successfully generated title summary")
+            return titleSummaryResponse.title
+        } catch let error as APIError {
+            print("API Error during title summarization: \(error)")
+            throw error
+        } catch {
+            print("Unknown error during title summarization: \(error.localizedDescription)")
+            throw APIError.serverError("Unknown error during title summarization: \(error.localizedDescription)")
+        }
     }
 }
 
@@ -79,6 +172,11 @@ struct SummaryResponse: Codable {
     let nextSteps: String
 }
 
+// New response model for title summary
+struct TitleSummaryResponse: Codable {
+    let title: String
+}
+
 struct ErrorResponse: Codable {
     let error: String
 }
@@ -86,4 +184,5 @@ struct ErrorResponse: Codable {
 enum APIError: Error {
     case invalidResponse
     case serverError(String)
+    case invalidURL
 } 
