@@ -2,13 +2,30 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
+// Disable body parsing, handle raw body
 export const config = {
     api: {
-        bodyParser: true, // Enable body parser since we're expecting JSON
+        bodyParser: true,
     },
 };
 
+// Export the handler function
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+    // Add CORS headers
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, x-api-key'
+    );
+
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
+    }
+
     // Validate request method
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method Not Allowed' });
