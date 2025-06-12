@@ -37,21 +37,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(401).json({ error: 'Invalid API Key' });
     }
 
+    // Ensure OPENAI_API_KEY is set
+    if (!process.env.OPENAI_API_KEY) {
+        return res.status(500).json({ error: 'Server configuration error: OPENAI_API_KEY not set' });
+    }
+
+    // Parse request body
+    let transcript: string;
     try {
-        const { transcript } = req.body;
-
-        if (!transcript) {
-            return res.status(400).json({ error: 'Transcript is required in the request body.' });
+        const body = req.body;
+        if (!body || typeof body.transcript !== 'string') {
+            return res.status(400).json({ error: 'Invalid request body: missing transcript' });
         }
+        transcript = body.transcript;
+    } catch (error) {
+        console.error('Error parsing request body:', error);
+        return res.status(400).json({ error: 'Invalid request body' });
+    }
 
-        // Ensure OPENAI_API_KEY is set
-        if (!process.env.OPENAI_API_KEY) {
-            return res.status(500).json({ error: 'Server configuration error: OPENAI_API_KEY not set' });
-        }
+    // Initialize OpenAI client
+    const openai = new OpenAI();
 
-        // Initialize OpenAI client
-        const openai = new OpenAI();
-
+    try {
         // Call OpenAI's chat completion API to generate a short title summary
         const chatCompletion = await openai.chat.completions.create({
             messages: [
