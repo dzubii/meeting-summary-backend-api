@@ -3,61 +3,82 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    // Validate request method
+    // 1. Validate Request Method
+    // Only allow POST requests, reject others with 405 Method Not Allowed.
     if (req.method !== 'POST') {
+        res.setHeader('Allow', 'POST'); // It's good practice to include the Allow header
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
-    // Validate API Key Secret
+    // 2. Validate Custom API Key Secret for authorization
     const apiKeySecret = req.headers['x-api-key'];
     if (apiKeySecret !== process.env.API_KEY_SECRET) {
-        return res.status(401).json({ error: 'Invalid API Key' });
+        return res.status(401).json({ error: 'Unauthorized: Invalid API Key' });
     }
 
-    // Ensure OPENAI_API_KEY is set
+    // 3. Ensure OpenAI API Key is configured on the server
     if (!process.env.OPENAI_API_KEY) {
-        return res.status(500).json({ error: 'Server configuration error: OPENAI_API_KEY not set' });
+        console.error('Server configuration error: OPENAI_API_KEY not set');
+        return res.status(500).json({ error: 'Server configuration error. The developer needs to set the OPENAI_API_KEY environment variable.' });
     }
 
-    // Parse request body
+    // 4. Parse and Validate Request Body
     let transcript: string;
     try {
+        // Vercel automatically parses JSON bodies, so req.body should be an object.
         const body = req.body;
-        if (!body || typeof body.transcript !== 'string') {
-            return res.status(400).json({ error: 'Invalid request body: missing transcript' });
+        if (!body || typeof body.transcript !== 'string' || body.transcript.trim() === '') {
+            return res.status(400).json({ error: 'Invalid request: "transcript" must be a non-empty string in the request body.' });
         }
         transcript = body.transcript;
     } catch (error) {
         console.error('Error parsing request body:', error);
-        return res.status(400).json({ error: 'Invalid request body' });
+        return res.status(400).json({ error: 'Invalid JSON in request body.' });
     }
 
-    // Initialize OpenAI client
+    // 5. Initialize OpenAI Client
+    // The client automatically picks up the OPENAI_API_KEY from process.env.
     const openai = new OpenAI();
 
+    // 6. Call OpenAI API and Handle Response
     try {
-        // Call OpenAI's chat completion API to generate a short title summary
         const chatCompletion = await openai.chat.completions.create({
             messages: [
                 {
                     role: 'system',
-                    content: 'You are a helpful assistant that summarizes meeting transcripts into short, concise titles (less than 10 words).',
+                    content: 'You are an expert summarizer. Your task is to create a concise, informative title for a meeting transcript. The title should be under 10 words.',
                 },
                 {
                     role: 'user',
-                    content: `Generate a title for the following meeting transcript, less than 10 words: "${transcript}"`,
+                    content: `Generate a title (less than 10 words) for the following transcript:\n\n"${transcript}"`,
                 },
             ],
             model: 'gpt-3.5-turbo',
-            max_tokens: 20,
+            max_tokens: 25,   // A bit more buffer for the title
             temperature: 0.7,
+            n: 1,             // We only need one title choice
         });
 
-        const title = chatCompletion.choices[0].message.content?.trim() || 'Untitled Meeting';
+        // Extract the generated title from the API response
+        const title = chatCompletion.choices[0]?.message?.content?.trim();
 
+        if (!title) {
+            console.error('OpenAI response did not contain message content.');
+            return res.status(500).json({ error: 'Failed to generate title from AI response.' });
+        }
+
+        // 7. Send Successful Response
+        // On success, return a 200 OK with the generated title.
         return res.status(200).json({ title });
-    } catch (error) {
-        console.error('Error generating title summary:', error);
-        return res.status(500).json({ error: 'Failed to generate title summary.' });
+
+    } catch (error: any) {
+        console.error('Error calling OpenAI API:', error);
+        
+        // Provide more specific error feedback based on the OpenAI client's error structure
+        if (error instanceof OpenAI.APIError) {
+             return res.status(error.status || 500).json({ error: `OpenAI API Error: ${error.message}` });
+        } else {
+             return res.status(500).json({ error: 'An unexpected error occurred while processing your request.' });
+        }
     }
 }
