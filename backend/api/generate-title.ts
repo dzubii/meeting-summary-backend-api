@@ -3,6 +3,8 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+    console.log('generate-title function invoked');
+
     // 1. Validate Request Method
     // Only allow POST requests, reject others with 405 Method Not Allowed.
     if (req.method !== 'POST') {
