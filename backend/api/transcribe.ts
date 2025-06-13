@@ -3,7 +3,6 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 import formidable from 'formidable';
 import fs from 'fs';
-import path from 'path';
 
 // Configure formidable to use the serverless function's temporary directory
 const form = formidable({
@@ -31,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Parse multipart form data
     try {
-        const { fields, files } = await new Promise<{ fields: formidable.Fields, files: formidable.Files }>((resolve, reject) => {
+        const { files } = await new Promise<{ fields: formidable.Fields, files: formidable.Files }>((resolve, reject) => {
             form.parse(req, (err, fields, files) => {
                 if (err) reject(err);
                 resolve({ fields, files });
